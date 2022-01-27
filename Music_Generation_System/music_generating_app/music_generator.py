@@ -1,11 +1,8 @@
-import pickle
 import torch
 
 from music21 import *
-from .generator import Generator
 from .apps import MusicGeneratingAppConfig
 
-import os
 
 model = MusicGeneratingAppConfig.model
 mappings = MusicGeneratingAppConfig.mappings
@@ -48,9 +45,10 @@ class MusicGeneratorUtility:
         pred_notes = [notes[int(x)] for x in pred_nums]
         return pred_notes
 
-    def save_music(self, filename='music.mp3'):
+    def save_music(self, filename='music.mid'):
         """ convert the output from the prediction to notes and create a midi file
         from the notes """
+
         offset = 0
         midi_stream = stream.Stream()
         prediction_output = self.generate_music()
@@ -81,4 +79,5 @@ class MusicGeneratorUtility:
             offset += 0.5
 
         midi_stream.write('midi', filename)
+
 
