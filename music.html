@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a062562745.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/icon-font.css' %}" />
+
+    <title>Music Generation System></title>
+  </head>
+  <body>
+    <header class="header1">
+      <div class="header__logo-box">
+          <a href="{% url 'index' %}"><img src="{% static 'images/aa.png' %}" alt="logo" class="header__logo" /></a>
+      </div>
+      <div class="title__before">
+        <h3 class="heading-primary music_heading">AI Generated Music</h3>
+      </div>
+      
+      <audio id="myAudio" ontimeupdate="onTimeUpdate()">
+        <!-- <source src="audio.ogg" type="audio/ogg"> -->
+        <source id="source-audio" src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      
+      <div class="player-ctn">
+        <div class="infos-ctn">
+          <div class="timer">00:00</div>
+          <div class="title"></div>
+          <div class="duration">00:00</div>
+        </div>
+        <div id="myProgress">
+          <div id="myBar"></div>
+        </div>
+        <div class="btn-ctn">
+           <div class="btn-action first-btn" onclick="previous()">
+              <div id="btn-faws-back">
+                <i class='fas fa-step-backward'></i>
+              </div>
+           </div>
+           <div class="btn-action" onclick="rewind()">
+              <div id="btn-faws-rewind">
+                <i class='fas fa-backward'></i>
+              </div>
+           </div>
+           <div class="btn-action" onclick="toggleAudio()">
+              <div id="btn-faws-play-pause">
+                <i class='fas fa-play' id="icon-play"></i>
+                <i class='fas fa-pause' id="icon-pause" style="display: none"></i>
+              </div>
+           </div>
+           <div class="btn-play" onclick="forward()">
+              <div id="btn-faws-forward">
+                <i class='fas fa-forward'></i>
+              </div>
+           </div>
+           <div class="btn-action" onclick="next()">
+              <div id="btn-faws-next">
+                <i class='fas fa-step-forward'></i>
+              </div>
+           </div>
+           <div class="btn-mute" id="toggleMute" onclick="toggleMute()">
+              <div id="btn-faws-volume">
+                <i id="icon-vol-up" class='fas fa-volume-up'></i>
+                <i id="icon-vol-mute" class='fas fa-volume-mute' style="display: none"></i>
+              </div>
+           </div>
+        </div>
+        <div class="playlist-ctn"></div>
+      </div>
+      <script src=app.js></script>
+    </header>
+
+    <main>
+      
+
+
+
+    <footer class="footer">
+      <div class="footer__footer__logo-box">
+          <img src="{% static 'images/aa.png' %}" alt="full-logo" class="footer__logo" />
+      </div>
+
+      <div class="row">
+        <div class="clo-1-of-2"></div>
+        <div class="clo-1-of-2">
+          <p class="footer__copyright">
+            UI Built by Aakash Raj Dhakal<br />
+            &copy; by Aakash Raj.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="{% static 'js/script.js' %}"></script>
+</html>
