@@ -19,9 +19,9 @@ class MusicGeneratorView(View):
     def get(self, request):
         music_name_midi = self.PATH +'music.mid'
         music_name_wav = self.PATH +'music.wav'
-        sound_font = self.PATH + 'soundfont.sf2'
+        #sound_font = self.PATH + 'soundfont.sf2'
         self.mg.save_music(music_name_midi)
-        FluidSynth(sound_font).midi_to_audio(music_name_midi, music_name_wav)
+        FluidSynth().midi_to_audio(music_name_midi, music_name_wav)
         print(type(music_name_midi))
         print(music_name_midi)
         return render(request, 'music.html',{'path':str(music_name_midi)})
