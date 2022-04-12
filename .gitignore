@@ -4,11 +4,12 @@
 
 #ignore script
 push.sh
-
+deployment.sh
 
 #ignore tmp and log
 /log
 /tmp
+
 
 
 ### Django ###
